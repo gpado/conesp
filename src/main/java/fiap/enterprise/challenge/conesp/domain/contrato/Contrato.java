@@ -53,12 +53,8 @@ public class Contrato {
 
     public String getNumeroApolice() { return numeroApolice; }
 
-    public String getVigenciaInicio() {
-        return vigenciaInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    }
-    public String getVigenciaFim() {
-        return vigenciaFim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    }
+    public LocalDate getVigenciaInicio() { return vigenciaInicio; }
+    public LocalDate getVigenciaFim() { return vigenciaFim; }
     public LocalDateTime getDataCadastro() { return dataCadastro; }
 
     public String getStatus() { return status; }

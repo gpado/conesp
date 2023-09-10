@@ -30,12 +30,12 @@
 
     <div class="mb-4">
       <label for="vigenciaInicio" class="block text-sm font-medium text-gray-600">Vigência Início:</label>
-      <input type="date" id="vigenciaInicio" name="vigenciaInicio" th:value="${contrato.vigenciaInicio}" class="mt-1 p-2 w-full border rounded-md" required>
+      <input type="date" id="vigenciaInicio" name="vigenciaInicio" th:value="${contrato?.vigenciaInicio}" class="mt-1 p-2 w-full border rounded-md">
     </div>
 
     <div class="mb-4">
       <label for="vigenciaFim" class="block text-sm font-medium text-gray-600">Vigência Fim:</label>
-      <input type="date" id="vigenciaFim" name="vigenciaFim" th:value="${contrato.vigenciaFim}" class="mt-1 p-2 w-full border rounded-md" required>
+      <input type="date" id="vigenciaFim" name="vigenciaFim" th:value="${contrato?.vigenciaFim}" class="mt-1 p-2 w-full border rounded-md">
     </div>
 
     <div class="mb-4">
