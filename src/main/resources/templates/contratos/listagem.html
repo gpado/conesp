@@ -1,44 +1,54 @@
 <!DOCTYPE html>
-<html lang="en"
+<html lang="pt-br"
       xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{template.html}">
 <head>
-  <title>Lista de filme</title>
+  <title>Lista de Contratos</title>
 </head>
-<body>
 
-<div layout:fragment="conteudo">
-  <a href="/contratos/formulario">Novo</a>
-  <h1>Lista de filmes</h1>
-  <table>
-    <thead>
-    <tr>
-      <th>NOME</th>
-      <th>DURACAO</th>
-      <th>ANO LANÇAMENTO</th>
-      <th>GÊNERO</th>
-      <th>AÇÕES</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="filme : ${lista}">
-      <td th:text="${filme.nome}"></td>
-      <td th:text="${filme.duracaoEmMinutos}"></td>
-      <td th:text="${filme.anoLancamento}"></td>
-      <td th:text="${filme.genero}"></td>
-      <td>
-        <a th:href="@{/filmes/formulario?id={id}(id=${filme.id})}">Editar</a>
+<body class="bg-gray-200 py-12">
 
-        <form action="/contratos" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="hidden" name="id" th:value="${filme.id}">
-          <input type="submit" value="Excluir">
-        </form>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+<div layout:fragment="conteudo" class="container mx-auto px-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Lista de Contratos</h1>
+    <a href="/contratos/formulario" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
+      <i class="fas fa-plus mr-2"></i>Novo
+    </a>
+  </div>
+
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <table class="min-w-full">
+      <thead>
+      <tr class="text-gray-700 border-b">
+        <th class="py-4 px-4">NOME</th>
+        <th class="py-4 px-4">DOCUMENTO</th>
+        <th class="py-4 px-4">NÚMERO APOLICIE</th>
+        <th class="py-4 px-4">AÇÕES</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="contrato : ${lista}" class="hover:bg-gray-100">
+        <td th:text="${contrato.nome}" class="py-4 px-4 border-b text-center"></td>
+        <td th:text="${contrato.documento}" class="py-4 px-4 border-b text-center"></td>
+        <td th:text="${contrato.numeroApolicie}" class="py-4 px-4 border-b text-center"></td>
+        <td class="py-4 px-4 border-b flex items-center space-x-4 justify-center"> <!-- 'justify-center' para centralizar os itens horizontalmente -->
+          <a th:href="@{/contratos/formulario?id={id}(id=${contrato.id})}" class="text-blue-600 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50">
+            <i class="fas fa-edit mr-1"></i> Editar
+          </a>
+          <form action="/contratos" method="post" class="inline">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="id" th:value="${contrato.id}">
+            <button value="Excluir" type="submit" class="text-red-600 hover:text-red-800 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50">
+              <i class="fas fa-trash mr-1"></i> Excluir
+            </button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
 </body>
 </html>

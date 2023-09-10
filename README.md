@@ -3,6 +3,13 @@
 
 # Banco de Dados:
 
+Primeiro, crie o banco de dados:
+CREATE DATABASE CONESP;
+
+Selecione esse banco de dados:
+USE CONESP;
+
+Agora, crie a tabela "CONTRATOS":
 CREATE TABLE CONTRATOS (
     ID INT PRIMARY KEY AUTO_INCREMENT,
     NOME_COMPLETO VARCHAR(255) NOT NULL,
