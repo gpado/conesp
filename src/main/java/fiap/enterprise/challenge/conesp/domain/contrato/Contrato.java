@@ -17,7 +17,8 @@ public class Contrato {
     private String numeroApolice;
     private LocalDate vigenciaInicio;
     private LocalDate vigenciaFim;
-    private LocalDateTime dataCadastro = LocalDateTime.now();  // Definindo o valor padrão como o momento atual
+    @Column
+    private LocalDateTime dataCadastro = LocalDateTime.now();
     private String status;
 
     public Contrato(DadosCadastroContrato dados){
@@ -26,7 +27,6 @@ public class Contrato {
         this.numeroApolice = dados.numeroApolice();
         this.vigenciaInicio = dados.vigenciaInicio();
         this.vigenciaFim = dados.vigenciaFim();
-        this.dataCadastro = dados.dataCadastro();
         this.status = dados.status();
     }
 
