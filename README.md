@@ -3,6 +3,8 @@ O projeto CONESP é um sistema desenvolvido como parte de um desafio proposto pe
 
 ## Banco de Dados:
 
+Muito importante ajustar o application.properties com o username e password para o acesso ao banco de dados. 
+
 ### Primeiro, crie o banco de dados:
 CREATE DATABASE CONESP;
 
